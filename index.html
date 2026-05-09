@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="hi-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jara – Aapki AI Saathi</title>
+    <meta
+      name="description"
+      content="Jara – aapki Hinglish AI assistant jo aapki life ko aasaan banati hai."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Animated Background Orbs -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <div class="app-container">
+      <!-- Main Card -->
+      <div class="card" id="mainCard">
+        <!-- Header -->
+        <div class="card-header">
+          <div class="brand">
+            <div class="brand-logo">
+              <svg viewBox="0 0 40 40" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="abstractJ" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#00F0FF" />
+                    <stop offset="0.5" stop-color="#B57BFF" />
+                    <stop offset="1" stop-color="#FF007F" />
+                  </linearGradient>
+                  <filter id="ultraGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+                <!-- Sleek abstract J shape -->
+                <path d="M26 6 V24 C26 29 22 34 16 34 C12 34 8 32 8 28" stroke="url(#abstractJ)" stroke-width="3" stroke-linecap="round" filter="url(#ultraGlow)"/>
+                <path d="M14 6 L28 4" stroke="url(#abstractJ)" stroke-width="3" stroke-linecap="round" filter="url(#ultraGlow)"/>
+                <!-- Accents -->
+                <circle cx="28" cy="4" r="2" fill="#00F0FF" filter="url(#ultraGlow)"/>
+                <circle cx="8" cy="28" r="1.5" fill="#FF007F" filter="url(#ultraGlow)"/>
+              </svg>
+            </div>
+            <span class="brand-name">Jara</span>
+          </div>
+          <div class="datetime-block">
+            <div class="date-text" id="dateText">SAT, FEBRUARY 28, 2026</div>
+            <div class="time-text"><span class="slash">/</span> <span id="timeText">8:30 AM</span></div>
+          </div>
+        </div>
+
+        <!-- Avatar Section -->
+        <div class="avatar-section">
+          <div class="avatar-ring-outer" id="avatarRingOuter">
+            <div class="avatar-ring-inner">
+              <div class="ring-diamond"></div>
+              <!-- Holographic Avatar -->
+              <div class="avatar-hologram" id="avatarHologram">
+                <div class="avatar-svg-wrapper">
+                  <img
+                    src="assets/avatar.png"
+                    alt="Jara Avatar"
+                    class="avatar-img"
+                    id="avatarImg"
+                  />
+                </div>
+                <!-- Waveform -->
+                <div class="waveform" id="waveform">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature Buttons -->
+        <div class="feature-buttons">
+          <button
+            class="feat-btn"
+            id="btnProductivity"
+            onclick="sendQuickMessage('Meri productivity improve karne mein help karo')"
+          >
+            <div class="feat-icon-container">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <path d="M9 16l2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="feat-label">PRODUCTIVITY</span>
+          </button>
+          <button
+            class="feat-btn"
+            id="btnWellness"
+            onclick="sendQuickMessage('Mujhe wellness tips do')"
+          >
+            <div class="feat-icon-container">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                <path d="M12 13l-1-1 1-1 1 1-1 1z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <span class="feat-label">WELLNESS</span>
+          </button>
+          <button
+            class="feat-btn"
+            id="btnMemory"
+            onclick="sendQuickMessage('Meri important cheezein yaad kara do')"
+          >
+            <div class="feat-icon-container">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <span class="feat-label">MEMORY BANK</span>
+          </button>
+        </div>
+
+        <!-- Chat Input Pill -->
+        <div class="chat-input-row" id="inputRow">
+          <button class="mic-btn-pill" id="micBtn" onclick="toggleMic()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+          </button>
+          <input
+            type="text"
+            id="chatInput"
+            class="chat-input"
+            placeholder="hello Jara"
+            autocomplete="off"
+            onkeydown="handleKey(event)"
+          />
+        </div>
+      </div>
+      <!-- /card -->
+
+      <!-- Chat History Panel -->
+      <div class="chat-panel" id="chatPanel">
+        <div class="chat-messages" id="chatMessages">
+          <!-- messages injected here -->
+        </div>
+      </div>
+    </div>
+    <!-- /app-container -->
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+flask
+flask-cors
+openai
+kokoro-onnx
+onnxruntime
+soundfile
+numpy
+gunicorn
+requests
