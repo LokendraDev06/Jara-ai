@@ -7,3 +7,5 @@ soundfile
 numpy
 gunicorn
 requests
+google-cloud-texttospeech
+python-dotenv

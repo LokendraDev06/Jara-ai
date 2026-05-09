@@ -3,7 +3,7 @@
    Chat logic, animations, Hinglish AI interface
    ============================================= */
 
-const API_URL = "http://127.0.0.1:5000/api/chat";
+const API_URL = "/api/chat";
 
 // ── State ────────────────────────────────────────
 let isSpeaking = false;
@@ -139,7 +139,7 @@ async function speak(text) {
 
   try {
     // 1. बैकएंड से ऑडियो जनरेट करवाएं (Fetch audio from backend)
-    const response = await fetch("http://127.0.0.1:5000/api/tts", {
+    const response = await fetch("/api/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: cleanText }),
@@ -157,7 +157,7 @@ async function speak(text) {
     if (data.status !== "success") throw new Error("TTS failed to save file");
 
     // 2. जब फाइल तैयार हो जाए, उसे ऐसे प्ले करें:
-    const audio = new Audio(data.file + '?t=' + new Date().getTime()); // ताज़ा फाइल के लिए टाइमस्टैम्प
+    const audio = new Audio(data.file);
 
     audio.onplay = () => {
       setSpeaking(true);

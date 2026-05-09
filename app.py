@@ -13,6 +13,7 @@ Run:
 """
 
 import os
+import base64
 
 # pyrefly: ignore [missing-import]
 from flask import Flask, request, jsonify
@@ -160,15 +161,11 @@ def api_tts():
             input=input_text, voice=voice, audio_config=audio_config
         )
 
-        # Ensure assets directory exists
-        os.makedirs("assets", exist_ok=True)
+        # Vercel has a read-only filesystem. Return Base64 directly!
+        audio_b64 = base64.b64encode(response.audio_content).decode('utf-8')
+        data_uri = f"data:audio/mp3;base64,{audio_b64}"
         
-        # Save audio file
-        output_path = "assets/response.mp3"
-        with open(output_path, "wb") as out:
-            out.write(response.audio_content)
-        
-        return jsonify({"status": "success", "file": output_path})
+        return jsonify({"status": "success", "file": data_uri})
         
     except Exception as e:
         print(f"❌ Google TTS Error: {repr(e)}")
